@@ -9,14 +9,13 @@ class School
     end  
     
     def add_student(student_name, grade)
-        #@roster[grade] = []
-        #@roster[grade] << student_name
-        @roster.each do |grade_key,value_name|
-            if grade  == grade_key
+        @roster[grade] = []  # first, key_value pair. At key_grade set an empty array to store students names
+        @roster.each do |grade_key,value_name|  # loop through each key value pair on the roster hash
+            if grade  == grade_key              # if grade passes as argument is already exist in the hash, push student_name to the array 
                 @roster[grade] << student_name
-            else
+            else                                # if no key existed at the grade level and then create a new key at that grade.
                 @roster[grade] = []
-                @roster[grade] << student_name
+                @roster[grade] << student_name 
             end
         end
     end
